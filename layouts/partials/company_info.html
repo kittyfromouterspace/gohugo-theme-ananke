@@ -23,10 +23,10 @@
 		</dl>
 		<hr class="mw3 bb bw1 b--black-10">
     <dl class="f6 lh-title mv2">
-      {{if .stories}}
-      <dt class="dib b v-mid">Stories</dt>
+      {{if .interviews}}
+      <dt class="dib b v-mid">Interviews</dt>
       <dd class="dib ml2 gray v-mid">
-      {{ range .stories}}
+      {{ range .interviews}}
       <a href="{{$.Site.BaseURL}}/interviews/{{lower . }}">{{ . }}</a><br>
       {{end}}
       </dd>

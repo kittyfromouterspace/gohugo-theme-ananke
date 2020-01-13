@@ -13,4 +13,22 @@
       {{ end }}
     </section>
   </div>
+  <div class="mw8 center">    
+    <div class="bg-white pa4 gray overflow-hidden">
+      <span class="f6 db">Companies</span>
+    </div>
+  <aside class="flex-ns flex-wrap justify-around">
+    {{ range $.Site.Data.companies }}
+      {{if in .products $.Title}}
+      <div class="relative w-100 w-30-l mb4 bg-white">
+        <div class="nested-links f5 lh-copy nested-copy-line-height">
+          <section class="mw5 mw6-ns hidden ba b--black-10 mv4">
+            {{ partial "company_info.html" . }}
+          </section>
+        </div>
+      </div>
+      {{ end }}
+    {{ end }}
+  </aside>
+  </div>
 {{ end }}
