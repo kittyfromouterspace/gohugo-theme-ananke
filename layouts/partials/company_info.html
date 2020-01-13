@@ -1,17 +1,36 @@
-<h1 class="f4 bg-dark-blue white mv0 pv2 ph3">{{.name}}</h1>
+<h1 class="f4 bg-dark-blue white mv0 pv2 ph3">{{.name | markdownify}}</h1>
 <div class="pa3 bt">
+  <div class="tc">
+    <img src="{{.logo}}" class="mw-100" title="{{.name}} Logo ">
+    <hr class="mw3 bb bw1 b--black-10">
+  </div>
   <p class="f6 f5-ns lh-copy measure mv0">
-    <dl class="lh-title pa4 mt0">
-      <dt class="b">Located in</dt>
-      <dd class="ml0">{{.country}}</dd>
-      <dt class="b">Products</dt>
-      <dd class="ml0">{{.products}}</dd>
-      <dt class="b">Website</dt>
-      <dd class="ml0">{{.website}}</dd>
-      <dt class="b">Stories</dt>
-      <dd class="ml0">{{.stories}}</dd>
-      <dt class="b">About</dt>
-      <dd class="ml0">{{.blurb}}</dd>
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b">Located in</dt>
+      <dd class="dib ml0 gray">{{.country}}</dd>
+		</dl>
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b">Website</dt>
+      <dd class="dib ml0 gray"><a href="{{.website}}" target="_new">{{.website}}</a></dd>
+		</dl>
+    <dl class="f6 lh-title mv2">
+      <dt class="dib b v-mid">Products</dt>
+      <dd class="dib ml0 gray v-mid">
+      {{ range .products}}
+        {{.}}<br>
+      {{end}}
+      </dd>
+		</dl>
+		<hr class="mw3 bb bw1 b--black-10">
+    <dl class="f6 lh-title mv2">
+      {{if .stories}}
+      <dt class="dib b v-mid">Stories</dt>
+      <dd class="dib ml0 gray v-mid">
+      {{ range .stories}}
+      <a href="{{$.Site.BaseURL}}/interviews/{{lower . }}">{{ . }}</a><br>
+      {{end}}
+      </dd>
+      {{end}}
     </dl>
   </p>
 </div>
