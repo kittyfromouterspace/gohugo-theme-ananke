@@ -1,0 +1,10 @@
+{{ range $.Site.Data.companies }}
+<div class="relative w-100 w-30-l mb4 bg-white">
+  <div class="nested-links f5 lh-copy nested-copy-line-height">
+    <section class="mw5 mw6-ns hidden ba mv4">
+      {{ partial "company_info.html" . }}
+    </section>
+  </div>
+</div>
+{{ end }}
+
