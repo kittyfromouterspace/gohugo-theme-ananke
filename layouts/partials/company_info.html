@@ -1,5 +1,5 @@
-<h1 class="f4 bg-dark-blue white mv0 pv2 ph3">{{.name | markdownify}}</h1>
-<div class="pa3 bt">
+<h1 class="f4 mv0 pv2 ph3">{{.name | markdownify}}</h1>
+<div class="pa3 bt b--black-10">
   <div class="tc">
     <img src="{{.logo}}" class="mw-100" title="{{.name}} Logo ">
     <hr class="mw3 bb bw1 b--black-10">
@@ -7,17 +7,17 @@
   <p class="f6 f5-ns lh-copy measure mv0">
     <dl class="f6 lh-title mv2">
       <dt class="dib b">Located in</dt>
-      <dd class="dib ml0 gray">{{.country}}</dd>
+      <dd class="dib ml2 gray">{{.country}}</dd>
 		</dl>
     <dl class="f6 lh-title mv2">
       <dt class="dib b">Website</dt>
-      <dd class="dib ml0 gray"><a href="{{.website}}" target="_new">{{.website}}</a></dd>
+      <dd class="dib ml2 gray"><a href="{{.website}}" target="_new">{{.website}}</a></dd>
 		</dl>
     <dl class="f6 lh-title mv2">
       <dt class="dib b v-mid">Products</dt>
-      <dd class="dib ml0 gray v-mid">
+      <dd class="dib ml2 gray v-mid">
       {{ range .products}}
-        {{.}}<br>
+        <a href="{{$.Site.BaseURL}}/products/{{.}}">{{.}}</a><br>
       {{end}}
       </dd>
 		</dl>
@@ -25,7 +25,7 @@
     <dl class="f6 lh-title mv2">
       {{if .stories}}
       <dt class="dib b v-mid">Stories</dt>
-      <dd class="dib ml0 gray v-mid">
+      <dd class="dib ml2 gray v-mid">
       {{ range .stories}}
       <a href="{{$.Site.BaseURL}}/interviews/{{lower . }}">{{ . }}</a><br>
       {{end}}
